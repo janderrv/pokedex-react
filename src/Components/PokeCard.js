@@ -3,7 +3,6 @@ import useFetch from '../Hooks/useFetch';
 import { GET_POKEMON_DATA } from '../api';
 import styles from './PokeCard.module.css';
 import { Button } from '@material-ui/core';
-import { act } from 'react-dom/test-utils';
 
 const PokeCard = ({ urlpoke }) => {
   const { data, request } = useFetch();
