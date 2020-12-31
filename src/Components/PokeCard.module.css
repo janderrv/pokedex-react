@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card_title {
+  display: block;
+  margin-top: 1rem;
+  color: black;
+  font-family: 'Roboto', Georgia, sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.card_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 10rem;
+  background: white;
+}
+
+.btnMudarSprite {
+  margin: 1rem;
+}

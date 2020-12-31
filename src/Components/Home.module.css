@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+header img {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+}
+
+header {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.busca {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.input {
+  flex-grow: 1;
+  max-width: 40rem;
+}
+
+.btnBuscar {
+  margin-left: 1rem;
+  flex-grow: 1;
+  max-width: 10rem;
+}
+
+.card {
+  margin: 1rem;
+  flex-grow: 1;
+  max-width: 250px;
+}
