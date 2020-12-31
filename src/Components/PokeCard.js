@@ -3,9 +3,17 @@ import useFetch from '../Hooks/useFetch';
 import { GET_POKEMON_DATA } from '../api';
 import styles from './PokeCard.module.css';
 import { Button } from '@material-ui/core';
+import { act } from 'react-dom/test-utils';
 
 const PokeCard = ({ urlpoke }) => {
   const { data, request } = useFetch();
+  const [activeSprite, setActiveSprite] = React.useState(null);
+
+  function changeSprite() {
+    if (activeSprite === data.sprites.front_default) {
+      setActiveSprite(data.sprites.back_default);
+    } else setActiveSprite(data.sprites.front_default);
+  }
 
   React.useEffect(() => {
     async function fetchPokemonData() {
@@ -15,19 +23,24 @@ const PokeCard = ({ urlpoke }) => {
     fetchPokemonData();
   }, [request, urlpoke]);
 
-  if (data)
+  React.useEffect(() => {
+    if (data) setActiveSprite(data.sprites.front_default);
+  }, [data]);
+
+  if (data) {
     return (
       <>
         <div className={styles.card}>
           <div className={styles.card_title}>{data.name}</div>
           <div className={styles.card_img}>
-            <img src={data.sprites.front_default} alt={data.name} />
+            <img src={activeSprite} alt={data.name} />
           </div>
           <div className={styles.bottom}>
             <Button
               className={styles.btnMudarSprite}
               variant="outlined"
               color="primary"
+              onClick={changeSprite}
             >
               MUDAR SPRITE
             </Button>
@@ -35,7 +48,7 @@ const PokeCard = ({ urlpoke }) => {
         </div>
       </>
     );
-  else return null;
+  } else return null;
 };
 
 export default PokeCard;
