@@ -23,13 +23,15 @@ const PokeCard = ({ urlpoke }) => {
           <div className={styles.card_img}>
             <img src={data.sprites.front_default} alt={data.name} />
           </div>
-          <Button
-            className={styles.btnMudarSprite}
-            variant="contained"
-            color="primary"
-          >
-            MUDAR SPRITE
-          </Button>
+          <div className={styles.bottom}>
+            <Button
+              className={styles.btnMudarSprite}
+              variant="outlined"
+              color="primary"
+            >
+              MUDAR SPRITE
+            </Button>
+          </div>
         </div>
       </>
     );

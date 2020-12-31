@@ -1,41 +1,39 @@
 .container {
   display: flex;
-  flex-direction: row;
+  margin: 0 auto;
+  flex-flow: row wrap;
   justify-content: center;
-  flex-wrap: wrap;
+  max-width: 1200px;
 }
 
 header img {
-  display: block;
   width: 10rem;
   height: 10rem;
 }
 
 header {
   display: flex;
-  margin-top: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-top: 2rem auto;
   justify-content: center;
+  align-items: center;
 }
 
 .busca {
   display: flex;
+  margin: 0 auto;
   justify-content: center;
-  margin: 2rem;
+  max-width: 1200px;
 }
 
 .input {
   flex-grow: 1;
   max-width: 40rem;
+  margin-right: 1rem;
 }
 
 .btnBuscar {
-  margin-left: 1rem;
   flex-grow: 1;
   max-width: 10rem;
-}
-
-.card {
-  margin: 1rem;
-  flex-grow: 1;
-  max-width: 250px;
 }

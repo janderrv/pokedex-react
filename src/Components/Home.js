@@ -3,7 +3,7 @@ import { GET_FIRST_GENERATION } from '../api';
 import useFetch from '../Hooks/useFetch';
 import PokeCard from './PokeCard';
 import styles from './Home.module.css';
-import { TextField, Button, Input } from '@material-ui/core';
+import { Button, Input } from '@material-ui/core';
 import logo from '../Assets/pokemon-logo.png';
 import useForm from '../Hooks/useForm';
 
@@ -17,6 +17,7 @@ const Home = () => {
     setPokeBusca(null);
     data.results.filter((poke) => {
       if (poke.name === busca.value) setPokeBusca(poke);
+      return poke;
     });
   };
 
@@ -34,34 +35,29 @@ const Home = () => {
         <header>
           <img src={logo} alt="logo" />
         </header>
-        <div>
-          <form className={styles.busca} onSubmit={buscarPoke}>
-            <Input
-              className={styles.input}
-              id="standard-basic"
-              label="Buscar pokemon"
-              {...busca}
-            />
-            <Button
-              className={styles.btnBuscar}
-              variant="contained"
-              color="primary"
-              onClick={buscarPoke}
-            >
-              Buscar
-            </Button>
-          </form>
-        </div>
+        <form className={styles.busca} onSubmit={buscarPoke}>
+          <Input
+            className={styles.input}
+            id="standard-basic"
+            placeholder="Buscar pokemon pelo nome"
+            label="Buscar pokemon"
+            {...busca}
+          />
+          <Button
+            className={styles.btnBuscar}
+            variant="contained"
+            color="primary"
+            onClick={buscarPoke}
+          >
+            Buscar
+          </Button>
+        </form>
         <div className={styles.container}>
           {pokeBusca ? (
-            <div className={styles.card} key={pokeBusca.url}>
-              <PokeCard urlpoke={pokeBusca.url} />
-            </div>
+            <PokeCard urlpoke={pokeBusca.url} key={pokeBusca.url} />
           ) : (
             data.results.map((poke) => (
-              <div className={styles.card} key={poke.url}>
-                <PokeCard urlpoke={poke.url} />
-              </div>
+              <PokeCard urlpoke={poke.url} key={poke.url} />
             ))
           )}
         </div>
